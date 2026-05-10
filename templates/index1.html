@@ -20,6 +20,14 @@
 
     <h2>Add-ons Available</h2>
 
+   <ul>
+        {% for flower, details in addons.items() %}
+            <li>
+                {{ flower }} - ${{ details['price'] }}
+                (Stock: {{ details['stock'] }})
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
 
