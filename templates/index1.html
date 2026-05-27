@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="USTF-8">
-    <meta name="viewport" content="width=deivce-width">
-    <title>Flask Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>Flower Shop</title>
 </head>
 
-<body> 
-    <h1>Displaying JSON flower data</h1>
+<body>
+
+    <h1>Displaying JSON Flower Data</h1>
 
     <ul>
         {% for flower, details in flowers.items() %}
             <li>
-                {{ flower }} - ${{ details['price'] }}
-                (Stock: {{ details['stock'] }})
+                {{ flower }} - ${{ details.price }}
+                (Stock: {{ details.stock }})
             </li>
         {% endfor %}
     </ul>
 
     <h2>Add-ons Available</h2>
 
-   <ul>
-        {% for flower, details in addons.items() %}
+    <ul>
+        {% for addon, details in addons.items() %}
             <li>
-                {{ flower }} - ${{ details['price'] }}
-                (Stock: {{ details['stock'] }})
+                {{ addon }} - (${{ details.price }})
             </li>
         {% endfor %}
     </ul>
+
 </body>
 </html>
-

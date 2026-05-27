@@ -1,25 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="USTF-8">
-    <meta name="viewport" content="width=deivce-width">
-    <title>Flask Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>Flower Shop</title>
 </head>
 
-<body> 
-    <h1>Displaying JSON flower data</h1>
+<body>
 
+
+    <h2>Select Flowers</h2>
+    <form action="{{ url_for('add_to_cart') }}" method="POST">
+        <label>Flower:</label>
+        <select name="flower">
+            {% for flower, details in flowers.items() %}
+                <option value="{{ flower }}">
+                    {{ flower }} - ${{ details.price }}
+                </option>
+            {% endfor %}
+
+        </select>
+
+        <label>Add-on:</label>
+
+        <select name="addon">
+
+            {% for addon, details in addons.items() %}
+                <option value="{{ addon }}">
+                    {{ addon }} - ${{ details.price }}
+                </option>
+            {% endfor %}
+
+        </select>
+
+        <label>Quantity</label>
+
+        <input type="number" name="quantity" value="1" min="1">
+
+        <button type="submit">Add to Cart</button>
+
+    <hr>
+<h3>Your Cart</h3>
+{% if cart %}
     <ul>
-        {% for flower, details in flowers.items() %}
-            <li>
-                {{ flower }} - ${{ details['price'] }}
-                (Stock: {{ details['stock'] }})
-            </li>
+        {% for item, detail in cart.items() %}
+        <li>
+            {{ item }}: {{ '%.2f' % detail['quantity'] }} *
+                                    ${{ detail['price'] }}
+            = ${{ detail['quantity'] * detail['price'] }}
+            <a herf="{{ url_for('remove_from_cart', item=item) }}">[Remove]</a>
+        </li>
         {% endfor %}
-    </ul>
+    {% else %}
+        <p>Your cart is empty</p>
+    {% endif %}
+</ul>
 
-    <h2>Add-ons Available</h2>
-
+ </form>
 </body>
 </html>
-

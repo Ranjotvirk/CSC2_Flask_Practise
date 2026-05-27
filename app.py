@@ -7,9 +7,15 @@ app.secret_key = 'your_secret_key'
 
 @app.route("/")
 def index():
-    flowers = load_data()
-     
-    return render_template('index.html', flowers=flowers)
+    flowers, addons = load_data()
+    cart = session.get('cart', {})
+    return render_template('index.html' ,  flowers=flowers, addons=addons, cart=cart)
+
+@app.route("/test")
+def test():
+    flowers, addons = load_data()
+    cart = session.get('cart', {})
+    return render_template('index1.html' ,  flowers=flowers, addons=addons, cart=cart)
 
 @app.route("/about")
 def about():
@@ -31,6 +37,45 @@ def load_data():
         addons = json.load(file)
     return flowers, addons
 
+@app.route('/add_to_cart', methods=['POST'])
+def add_to_cart():
+    flower = request.form.get("flower")
+    quantity = int(request.form["quantity"])
+    flowers, addons = load_data()
+    cart = session.get('cart', {})
+
+    print("Flower selected:", flower)
+    print("Quantity:", quantity)
+
+    if flower not in flowers:
+        flash("Invalid flower selected.")
+        return redirect(url_for('home'))
+    
+    if flower in cart:
+        cart[flower]['quantity'] +=quantity
+    else:
+        cart[flower] = {
+            'price': flowers[flower]['price'],
+            'quantity': quantity
+        }
+    session['cart'] = cart
+    session.modified = True
+    flash(f"{quantity} {flower}(s) added to cart.")
+    return redirect(url_for('index'))
+
+@app.route('/remove_from_cart/<item>')
+def remove_from_cart():
+    cart = session.get('cart', {})
+
+    if item in cart:
+        del cart[item]
+        session['cart'] = cart
+        session.modified = True
+        flash(f"{item} remove from cart.")
+    else:
+        flash("Item not found in cart")
+
+    return redirect(url_for('index'))
 if __name__ == '__main__':
     app.run(debug=True)
 
