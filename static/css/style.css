@@ -1,0 +1,145 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #4ebfa3;
+    padding: 20px;
+    text-align: left;
+}
+
+header h1 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #000;
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.flashes {
+    list-style: none;
+    padding: 15px;
+    background-color: #d4f1f4;
+    border-left: 5px solid #4ebfa3;
+    color: #005f73;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: #222;
+}
+
+
+.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #444;
+}
+
+select, input[type="number"] {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    box-sizing: border-box;
+    height: 40px;
+}
+
+select {
+    min-width: 160px;
+}
+
+input[type="number"] {
+    width: 100px;
+}
+
+button {
+    background-color: #3b7dd8;
+    color: white;
+    border: none;
+    padding: 0 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 40px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #2a66b8;
+}
+
+
+h2.cart-title {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #f27127;
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+.cart-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.remove-link {
+    color: #4a148c;
+    text-decoration: none;
+    margin-left: 5px;
+    font-size: 0.95rem;
+}
+
+.remove-link:hover {
+    text-decoration: underline;
+}
+
+.total-section {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 25px;
+    border-top: 2px solid #eee;
+    padding-top: 15px;
+}
+
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #777;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
