@@ -10,13 +10,14 @@ def index():
     flowers, addons = load_data()
     cart = session.get('cart', {})
     total = calculate_total(cart)
-    return render_template('index.html' ,  flowers=flowers, addons=addons, cart=cart, total=total)
+    return render_template("index.html" , flowers=flowers, addons=addons, cart=cart, total=total)
+
 
 @app.route("/test")
 def test():
     flowers, addons = load_data()
     cart = session.get('cart', {})
-    return render_template('index1.html' ,  flowers=flowers, addons=addons, cart=cart)
+    return render_template('index1.html' , flowers=flowers, addons=addons, cart=cart)
 
 @app.route("/about")
 def about():
