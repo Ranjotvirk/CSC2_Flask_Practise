@@ -11,10 +11,10 @@
     <h1>Displaying JSON Flower Data</h1>
 
     <ul>
-        {% for flower, details in flowers.items() %}
+        {% for flower, detail in flowers.items() %}
             <li>
-                {{ flower }} - ${{ details.price }}
-                (Stock: {{ details.stock }})
+                {{ flower }} - ${{ detail.price }}
+                (Stock: {{ detail.stock }})
             </li>
         {% endfor %}
     </ul>
@@ -22,9 +22,9 @@
     <h2>Add-ons Available</h2>
 
     <ul>
-        {% for addon, details in addons.items() %}
+        {% for addon, detail in addons.items() %}
             <li>
-                {{ addon }} - (${{ details.price }})
+                {{ addon }} - (${{ detail.price }})
             </li>
         {% endfor %}
     </ul>
